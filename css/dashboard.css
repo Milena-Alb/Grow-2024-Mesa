@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Inter'; 
+    src: url('assets\fonts\Inter-VariableFont_opsz,wght.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+}
+nav{
+    background-color: rgba(179, 38, 30, 1);
+    color: white;
+}
+h1{
+    color: rgba(36, 31, 74, 1);
+}
+p{
+    color: rgba(88, 63, 153, 1);
+}
+a{
+    text-decoration: none;
+    color: white;
+}
