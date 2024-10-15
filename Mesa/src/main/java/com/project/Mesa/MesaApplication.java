@@ -1,11 +1,17 @@
 package com.project.Mesa;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import com.project.Mesa.Model.Users;
+import com.project.Mesa.Repository.UserRepository;
 
 @SpringBootApplication
 @EntityScan(basePackages = "com.project.Mesa.Model")
@@ -17,5 +23,28 @@ public class MesaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MesaApplication.class, args);
 	}
-
+	
+	 @Bean
+	    public CommandLineRunner commandLineRunner(UserRepository userRepository) {
+	        return args -> {
+	        	criarUsuarioSeNaoExistir(userRepository, "MarianaSoares", "Gerente", "Saboris Gourmeet LTDA", "1234");
+				criarUsuarioSeNaoExistir(userRepository, "CarlaFerreira", "Gerente", "Delicia viva LTDA", "1234");
+				criarUsuarioSeNaoExistir(userRepository, "GabrielLima", "Gerente", "Bela Mesa Alimentos", "1234");
+				criarUsuarioSeNaoExistir(userRepository, "ErysonMoreira", "Administrador", "PortoDigital", "1234");
+	        };
+	    }
+	 
+	 private void criarUsuarioSeNaoExistir(UserRepository userRepository, String login, String cargo, String empresa, String senha) {
+			Users user = userRepository.findByUsername(login);
+			if (user == null) {
+				Users novoUsuario = new Users();
+				novoUsuario.setLogin(login);
+				novoUsuario.setCargo(cargo);
+				novoUsuario.setEmpresa(empresa);
+				novoUsuario.setPassword(senha); // Senha não codificada
+				userRepository.save(novoUsuario);
+				System.out.println("Usuário " + login + " criado com sucesso.");
+			}
+		}
+	    
 }
