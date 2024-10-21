@@ -15,12 +15,16 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 
 
 @Configuration
-public class WebSecurityConfig {
+@EnableWebMvc
+public class WebSecurityConfig implements WebMvcConfigurer {
 
 	@Autowired
 	private final SecurityDatabaseService securityDatabaseService;
@@ -33,16 +37,25 @@ public class WebSecurityConfig {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(securityDatabaseService).passwordEncoder(NoOpPasswordEncoder.getInstance());
 	}
+	
+	@Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
+    }
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests((authz) -> authz
 				// Rotas acessíveis apenas pelo admin
-				.requestMatchers("/cadastrousuarios", "/salvarusuarios").hasRole("MANAGER")
+				.requestMatchers("/tela.css","/img/**").permitAll()
+				.requestMatchers("/cadastrousuarios", "/salvarusuarios","/listarusuarios","/editarusuarios/{idusuario}").hasRole("MANAGER")
+				
 				// Qualquer outra rota requer autenticação
 				.anyRequest().authenticated())
-				// Usa o form login padrão do Spring Security
-				.formLogin((form) -> form.defaultSuccessUrl("/", true) 
+				// Usa o form da pagina tela.html do Spring Security
+				.formLogin((form) -> form
+						.loginPage("/login")
+						.defaultSuccessUrl("/", true) 
 						.permitAll())
 				 .logout(logout -> logout.logoutUrl("/logout")
 			             .permitAll());  
