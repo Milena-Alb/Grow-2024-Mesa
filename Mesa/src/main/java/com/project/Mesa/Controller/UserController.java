@@ -69,8 +69,11 @@ public class UserController {
 
 	@RequestMapping(method = RequestMethod.POST, value = "/salvarusuarios")
 	public ModelAndView salvar(@ModelAttribute Users usuarios) {
-		Long nextId = getNextAvailableId();
-		usuarios.setId(nextId);
+		 if (usuarios.getId() == null || !userRepository.existsById(usuarios.getId())) {
+		        // Se o ID for nulo ou não existir, significa que é um novo usuário
+		        Long nextId = getNextAvailableId();
+		        usuarios.setId(nextId);
+		    }
 		
 		ModelAndView modelview = new ModelAndView("paginas/cadastrousuarios");
 		// Salva um novo usuário

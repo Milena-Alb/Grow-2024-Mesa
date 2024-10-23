@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Home</title>
 <link th:href="@{/img/logo.png}" rel="icon" type="image/x-icon">
 </head>
@@ -11,7 +11,9 @@
 <a th:if="${#authorization.expression('hasRole(''ROLE_MANAGER'')')}" href="/cadastrousuarios">Cadastro de Usuarios</a>
 <br>
 
-<a href="/filial">Filial</a>
+<a th:if="${#authorization.expression('hasRole(''ROLE_MANAGER'')')}" href="/filial">Filial</a><br>
+
+<a href= "/premiacoes">Premiações</a><br>
 
 
 

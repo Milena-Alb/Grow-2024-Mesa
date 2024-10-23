@@ -8,7 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Filial implements Serializable{
+public class filial implements Serializable{
 
 	/**
 	 * 
@@ -16,7 +16,6 @@ public class Filial implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String cnpj;
 	private String nome;
 	private String grupo;
