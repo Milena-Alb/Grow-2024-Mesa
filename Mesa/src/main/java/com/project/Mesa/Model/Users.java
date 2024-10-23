@@ -76,6 +76,7 @@ public class Users implements Serializable, UserDetails {
 	    String role = cargo.equalsIgnoreCase("Administrador") ? "ROLE_MANAGER" : "ROLE_USER";
 	    return Collections.singletonList(new SimpleGrantedAuthority(role));
 	}
+	
 	@Override
 	public String getUsername() {
 		return login;

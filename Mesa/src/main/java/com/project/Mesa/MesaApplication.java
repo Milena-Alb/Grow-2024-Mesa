@@ -1,5 +1,6 @@
 package com.project.Mesa;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -14,7 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.project.Mesa.Model.Users;
+import com.project.Mesa.Repository.SequenceService;
 import com.project.Mesa.Repository.UserRepository;
+
+
 
 @SpringBootApplication
 @EntityScan(basePackages = "com.project.Mesa.Model")
@@ -25,7 +29,8 @@ import com.project.Mesa.Repository.UserRepository;
 @RestController
 @EnableAutoConfiguration
 public class MesaApplication {
-
+	
+	 
 	public static void main(String[] args) {
 		SpringApplication.run(MesaApplication.class, args);
 	}
@@ -33,6 +38,7 @@ public class MesaApplication {
 	 @Bean
 	    public CommandLineRunner commandLineRunner(UserRepository userRepository) {
 	        return args -> {
+	        	sequenciaInicial();
 	        	criarUsuarioSeNaoExistir(userRepository, "MarianaSoares", "Gerente", "Saboris Gourmeet LTDA", "1234");
 				criarUsuarioSeNaoExistir(userRepository, "CarlaFerreira", "Gerente", "Delicia viva LTDA", "1234");
 				criarUsuarioSeNaoExistir(userRepository, "GabrielLima", "Gerente", "Bela Mesa Alimentos", "1234");
@@ -52,5 +58,23 @@ public class MesaApplication {
 				System.out.println("Usuário " + login + " criado com sucesso.");
 			}
 		}
+	 
+	 @Autowired
+	 private UserRepository usuario;
+	 
+	 @Autowired
+	 private SequenceService sequenceService;
+	 
+	 private void sequenciaInicial() {
+		 
+		 Iterable<Users> users = usuario.findAll();  // Obtém todos os usuários
+		    if (!users.iterator().hasNext()) {  // Verifica se a lista está vazia
+		        sequenceService.restartSequence(1L);  // Reinicia a sequência se não houver usuários
+		        System.out.println("Restart da Sequência Realizada");
+		    }
+		 }
+		 
+	 }
 	    
-}
+
+
