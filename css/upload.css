@@ -1,12 +1,3 @@
-:root {
-  --primary-light: #fecaca;
-  --hover-red: #ef4444;
-  --text-light: #ffffff;
-  --bg-light: #fee2e2;
-  --bg-white: #ffffff;
-  --shadow-color: rgba(220, 38, 38, 0.1);
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -25,12 +16,12 @@ body {
   top: 0;
   left: 0;
   height: 100%;
-  width: 275px;
-  background-color: rgba(179, 38, 30, 1);
+  width: 279px;
+  background-color: #241F4A;
   padding: 20px;
   transition: all 0.3s ease;
-  box-shadow: 4px 0 10px var(--shadow-color);
   z-index: 1000;
+  color: #fff;
 }
 
 .sidebar.close {
@@ -72,15 +63,17 @@ body {
   padding: 17px;
   transition: all 0.3s ease;
   white-space: nowrap;
+
 }
 
 .menu_item .item a:hover {
-  background-color: rgba(174, 12, 7, 1);
+  background-color:  #583F99;
 }
 
 .menu_item .item a span.material-symbols-outlined {
   margin-right: 15px;
   font-size: 24px;
+  margin-left: 5px;
 }
 
 .sidebar-controls {
@@ -102,6 +95,7 @@ body {
   color: var(--text-light);
   transition: color 0.3s ease;
   margin-left: 7px;
+  color: #fff;
 }
 
 #sidebar-close,
@@ -115,7 +109,7 @@ body {
 #lock-icon:hover,
 #sidebar-close:hover,
 #sidebar-closed-icon:hover {
-  color: var(--primary-light);
+  color:#8f7fb6 ;
 }
 
 .main {
@@ -146,15 +140,15 @@ body {
   margin-bottom: 46px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--text-light);
+  border: 3px solid #fff;
   padding: 2px;
 }
 
 .logo_name {
   font-size: 22px;
-  color: var(--text-light);
   font-weight: 500;
   text-align: center;
+  color: #fff;
 }
 
 .sidebar.close #lock-icon {
@@ -172,7 +166,7 @@ body {
 
 .button-campanha {
   background-color: rgba(36, 31, 74, 1);
-  color: var(--text-light);
+  color: #fff;
   padding: 15px 20px;
   border: none;
   border-radius: 8px;
