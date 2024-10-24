@@ -177,6 +177,48 @@ body {
   display: none;
 }
 
+.button-campanha {
+  /*alterei as cores para o padrao do figma*/
+  background-color: #241F4A;
+  color: #fff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute;
+  top: 90px;
+  right: 20px;
+}
+
+.button-campanha:hover {
+  /*alterei as cores para o padrao do figma*/
+  background-color: #583F99;
+}
+
+.main p {
+  /*alterei as cores para o padrao do figma*/
+  color: #583F99;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.title-upload {
+  /*alterei as cores para o padrao do figma*/
+  color: #770B08;
+}
+
+.last-upload, .history-upload {
+  margin-top: 60px;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.history-upload {
+  margin-top: 100px;
+}
+
+/* Alterado, vou excluir futuramente
 .title-notification {
   color: rgba(36, 31, 74, 1);
 }
@@ -202,7 +244,7 @@ body {
 .alert {
   color: #bb2626;
 }
-
+*/
 
 .main p {
   /*alterei as cores para o padrao do figma*/
