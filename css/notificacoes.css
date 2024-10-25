@@ -25,9 +25,9 @@ body {
   top: 0;
   left: 0;
   height: 100%;
-  width: 275px;
+  width: 282px;
   background-color: rgba(179, 38, 30, 1);
-  padding: 20px;
+  padding: 12px;
   transition: all 0.3s ease;
   box-shadow: 4px 0 10px var(--shadow-color);
   z-index: 1000;
@@ -45,7 +45,7 @@ body {
 
 .sidebar.close .menu_item .item a {
   justify-content: center;
-  padding: 20px;
+  padding: 12px;
 }
 
 .menu_container {
@@ -69,7 +69,7 @@ body {
   text-decoration: none;
   justify-content: flex-start;
   color: var(--text-light);
-  padding: 17px;
+  padding: 8px;
   transition: all 0.3s ease;
   white-space: nowrap;
 }
@@ -81,7 +81,7 @@ body {
 .menu_item .item a span.material-symbols-outlined {
   margin-right: 15px;
   font-size: 24px;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 .sidebar-controls {

@@ -17,8 +17,10 @@ body {
   left: 0;
   height: 100%;
   width: 282px;
+  /*alterei as cores para o padrao do figma*/
   background-color: #241F4A;
-  padding: 20px;
+  /*Alterei o padding de 20px para 12px*/
+  padding: 12px;
   transition: all 0.3s ease;
   z-index: 1000;
   color: #fff;
@@ -36,7 +38,8 @@ body {
 
 .sidebar.close .menu_item .item a {
   justify-content: center;
-  padding: 20px;
+  /*Alterei o padding de 20px para 12px*/
+  padding: 12px;
 }
 
 .menu_container {
@@ -60,20 +63,23 @@ body {
   text-decoration: none;
   justify-content: flex-start;
   color: var(--text-light);
-  padding: 17px;
+  /*Alterei o padding de 17px para 8px*/
+  padding: 8px;
   transition: all 0.3s ease;
   white-space: nowrap;
 
 }
 
 .menu_item .item a:hover {
+  /*alterei as cores para o padrao do figma*/
   background-color:  #583F99;
 }
 
 .menu_item .item a span.material-symbols-outlined {
   margin-right: 15px;
   font-size: 24px;
-  margin-left: 5px;
+  /* Alteração na posição dos icones */
+  margin-left: 10px;
 }
 
 .sidebar-controls {
@@ -109,7 +115,8 @@ body {
 #lock-icon:hover,
 #sidebar-close:hover,
 #sidebar-closed-icon:hover {
-  color:#8f7fb6 ;
+  /*alterei as cores para o padrao do figma*/
+  color:#583F99 ;
 }
 
 .main {
@@ -165,7 +172,8 @@ body {
 }
 
 .button-campanha {
-  background-color: rgba(36, 31, 74, 1);
+  /*alterei as cores para o padrao do figma*/
+  background-color: #241F4A;
   color: #fff;
   padding: 15px 20px;
   border: none;
@@ -178,17 +186,20 @@ body {
 }
 
 .button-campanha:hover {
-  background-color: rgba(57, 50, 107, 1);
+  /*alterei as cores para o padrao do figma*/
+  background-color: #583F99;
 }
 
 .main p {
-  color: rgba(88, 63, 153, 1);
+  /*alterei as cores para o padrao do figma*/
+  color: #583F99;
   font-size: 20px;
   padding-left: 10px;
 }
 
 .title-upload {
-  color: rgba(36, 31, 74, 1);
+  /*alterei as cores para o padrao do figma*/
+  color: #770B08;
 }
 
 .last-upload, .history-upload {
