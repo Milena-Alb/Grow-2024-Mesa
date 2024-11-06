@@ -12,6 +12,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 
 @Entity
@@ -29,7 +31,10 @@ public class Users implements Serializable, UserDetails {
 	private String login;
 	private String password;
 	private String cargo;
-	private String empresa;
+	
+	@ManyToOne
+	@JoinColumn(name = "cnpj_filial", referencedColumnName = "cnpj")
+	private filial empresa;
 
 	public Long getId() {
 		return id;
@@ -63,11 +68,13 @@ public class Users implements Serializable, UserDetails {
 		this.cargo = cargo;
 	}
 
-	public String getEmpresa() {
+	
+
+	public filial getEmpresa() {
 		return empresa;
 	}
 
-	public void setEmpresa(String empresa) {
+	public void setEmpresa(filial empresa) {
 		this.empresa = empresa;
 	}
 
@@ -76,6 +83,7 @@ public class Users implements Serializable, UserDetails {
 	    String role = cargo.equalsIgnoreCase("Administrador") ? "ROLE_MANAGER" : "ROLE_USER";
 	    return Collections.singletonList(new SimpleGrantedAuthority(role));
 	}
+	
 	@Override
 	public String getUsername() {
 		return login;
@@ -100,5 +108,7 @@ public class Users implements Serializable, UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
-
+	public String getCnpjEmpresa() {
+	    return empresa != null ? empresa.getCnpj() : null;
+	}
 }
