@@ -39,13 +39,12 @@
     <div class="main">
         <div class="dashboard-section">
             <h1 class="title-dashboard">Dashboard</h1>
-            <p class="graphic">Gráfico geral:</p>
     
-            <!-- Gráficos de uma mesma campanha lado a lado -->
-            <div class="graphs-and-table">
-                <!-- Gráficos lado a lado -->
-                <div class="campaign-graphs">
-                    <label>Comida Preferida: </label><br>
+            <div class="campaign-graphs">
+                <div class="label-container">
+                    <label id="comidaPreferidaLabel">Comida Preferida:</label>
+                </div>
+                <div class="graphs-container">
                     <div class="graph-item" style="height: 300px; width: 450px;">
                         <canvas id="comidaPreferida_bar"></canvas>
                     </div>
@@ -53,43 +52,44 @@
                         <canvas id="comidaPreferida_Bolhas"></canvas>
                     </div>
                 </div>
+            </div>
     
-                <!-- Gráfico de Melhores Empresas ao lado da Tabela -->
-                <div class="graph-and-table-right">
-                    <div class="graph-item" style="height: 300px; width: 450px;">
-                        <label>Melhores Empresas</label>
-                        <canvas id="melhoresEmpresas_bar"></canvas>
-                    </div>
-                    <div class="ranking-section">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Empresa</th>
-                                    <th>Participante</th>
-                                    <th>Meta Realizada</th>
-                                    <th>Ranking</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="highlight">
-                                    <td>Saboris Gourmet</td>
-                                    <td>Lucas Andrade</td>
-                                    <td>50</td>
-                                    <td class="ranking">1º Lugar</td>
-                                </tr>
-                                <tr>
-                                    <td>Delícia Viva</td>
-                                    <td>Mariana Soares</td>
-                                    <td>12</td>
-                                    <td class="ranking">2º Lugar</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <!-- Gráfico de Melhores Empresas ao lado da Tabela -->
+            <div class="graph-and-table-right">
+                <div class="graph-item" style="height: 250px; width: 400px;">
+                    <label>Melhores Empresas</label>
+                    <canvas id="melhoresEmpresas_bar"></canvas>
+                </div>
+                <div class="ranking-section">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Empresa</th>
+                                <th>Participante</th>
+                                <th>Meta Realizada</th>
+                                <th>Ranking</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="highlight">
+                                <td>Saboris Gourmet</td>
+                                <td>Lucas Andrade</td>
+                                <td>50</td>
+                                <td class="ranking">1º Lugar</td>
+                            </tr>
+                            <tr>
+                                <td>Delícia Viva</td>
+                                <td>Mariana Soares</td>
+                                <td>12</td>
+                                <td class="ranking">2º Lugar</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+
         
     
     <script th:src="@{/js/dashboard.js}">
