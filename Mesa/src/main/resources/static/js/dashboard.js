@@ -252,5 +252,142 @@ const config = {
         }
     }
 };
-
 var melhoresEmpresas_bar = new Chart(ctx, config);
+
+const datas = {
+    labels: ["Lucas Andrade", "Mariana Soares", "Gabriel Lima"],
+    datasets: [
+        {
+            label: "Meta Volume",
+            data: [29, 20, 110],
+            backgroundColor: "#C21712"
+        },
+        {
+            label: "Real Volume",
+            data: [30, 25, 112],
+            backgroundColor: "#04146D"
+        },
+        {
+            label: "Meta Positivação",
+            data: [8, 8, null],  // null representa ausência de valor para Gabriel
+            backgroundColor: "#583F99"
+        },
+        {
+            label: "Real Positivação",
+            data: [10, 6, null],
+            backgroundColor: "#00FF1A"
+        }
+    ]
+};
+
+const config3 = {
+    type: "bar",
+    data: datas,
+    options: {
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        let label = context.dataset.label || '';
+                        if (label) {
+                            label += ': ';
+                        }
+                        label += context.raw;
+                        return label;
+                    }
+                }
+            }
+        },
+        responsive: true,
+        scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: 'Participantes',
+                    color: 'black',
+                    font: 14
+                },
+                ticks: {
+                    color: 'black',
+                    font: 14
+                },
+                barPercentage: 0.4, // Ajusta o tamanho da barra para não ficarem tão grossas
+                categoryPercentage: 0.4 // Ajusta a largura das categorias
+            },
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Valores',
+                    color: 'black',
+                    font: 12
+                },
+                ticks: {
+                    color: 'black',
+                    font: 12
+                }
+            }
+        }
+    }
+};
+
+const comeMelhorBar = new Chart(
+    document.getElementById("comeMelhorBar"),
+    config3
+);
+
+// Configurando os dados
+const dataMelhor = {
+    labels: ["Lucas Andrade", "Mariana Soares", "Gabriel Lima"], // Participantes
+    datasets: [
+        {
+            label: "Valor da Premiação",
+            data: [1000, 1000, 1000], // Valores de premiação
+            backgroundColor: [
+                "rgba(75, 192, 192, 0.6)", // Cor para Lucas Andrade
+                "rgba(153, 102, 255, 0.6)", // Cor para Mariana Soares
+                "rgba(255, 159, 64, 0.6)"  // Cor para Gabriel Lima
+            ],
+            borderColor: [
+                "rgba(75, 192, 192, 1)", 
+                "rgba(153, 102, 255, 1)", 
+                "rgba(255, 159, 64, 1)"
+            ],
+            borderWidth: 1
+        }
+    ]
+};
+
+// Configurando o gráfico
+const config4 = {
+    type: "doughnut", // Altera o tipo para 'pie' para gráfico de pizza
+    data: dataMelhor,
+    options: {
+        responsive: true,
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        let label = context.label || '';
+                        if (label) {
+                            label += ': ';
+                        }
+                        label += `R$ ${context.raw}`;
+                        return label;
+                    }
+                }
+            },
+            legend: {
+                position: "top"
+            }
+        }
+    }
+};
+
+// Renderizando o gráfico
+const destaqueChart = new Chart(
+    document.getElementById("destaque"),
+    config4
+);
+
+

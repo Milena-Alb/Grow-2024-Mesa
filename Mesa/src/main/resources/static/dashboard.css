@@ -201,9 +201,6 @@ body {
     display: flex;
     justify-content: center;
 }
-.dashboard-section {
-    width: 100%;
-}
 
 .graphs-and-table {
     display: flex;
@@ -244,6 +241,7 @@ table {
 
 table, th, td {
     border: 1px solid #000000;
+    border-radius: 30px;
 }
 
 th, td {
@@ -254,15 +252,9 @@ th, td {
 th {
     background-color: #f4f4f4;
 }
-.campaign-graphs{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: #f1f0f0;
-    border-radius: 10px;
-    padding: 10px;
-    width: 800px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+.graph-and-table-right label{
+    font-size: 20px;
+    font-weight: bold;
 }
 .label-container {
     text-align: left;
@@ -273,19 +265,63 @@ th {
     display: flex;
     gap: 20px;
 }
-.graph-and-table-right{
+
+.campaign-graphs{
+    flex: 2;
     display: flex;
     flex-direction: column;
     gap: 10px;
     background-color: #f1f0f0;
     border-radius: 10px;
     padding: 10px;
-    width: 420px;
+    width: 800px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.graph-and-table-right{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f1f0f0;
+    border-radius: 10px;
+    width: 450px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     margin-top: 20px;
 
 }
-.graph-and-table-right label{
+.graphs-and-table {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.graph-better{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f1f0f0;
+    border-radius: 10px;
+    width: 550px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+.graph-better label{
+    font-size: 20px;
+    font-weight: bold;
+}
+.graph-destaque{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f1f0f0;
+    border-radius: 10px;
+    width: 450px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+.graph-destaque label{
     font-size: 20px;
     font-weight: bold;
 }
