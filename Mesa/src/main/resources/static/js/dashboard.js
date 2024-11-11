@@ -181,8 +181,8 @@ const data = {
         {
             label: 'Meta',
             data: [21, 9],
-            backgroundColor: '#C21712', // Cor para "Meta"
-            borderColor: '#C21712',
+            backgroundColor: '#FF3300', // Cor para "Meta"
+            borderColor: '#FF3300',
             borderWidth: 1
         },
         {
@@ -190,13 +190,6 @@ const data = {
             data: [45, 10],
             backgroundColor: '#583F99', // Cor para "Meta Realizada"
             borderColor: '#583F99',
-            borderWidth: 1
-        },
-        {
-            label: 'Valor da Premiação',
-            data: [30, 15], // Insira o valor da premiação para cada participante
-            backgroundColor: '#FF3300', // Cor para "Valor da Premiação"
-            borderColor: '#FF3300',
             borderWidth: 1
         }
     ]
@@ -344,14 +337,14 @@ const dataMelhor = {
             label: "Valor da Premiação",
             data: [1000, 1000, 1000], // Valores de premiação
             backgroundColor: [
-                "rgba(75, 192, 192, 0.6)", // Cor para Lucas Andrade
-                "rgba(153, 102, 255, 0.6)", // Cor para Mariana Soares
-                "rgba(255, 159, 64, 0.6)"  // Cor para Gabriel Lima
+                "#A2711D", // Cor para Lucas Andrade
+                "#241F4A", // Cor para Mariana Soares
+                "#770B08"  // Cor para Gabriel Lima
             ],
             borderColor: [
-                "rgba(75, 192, 192, 1)", 
-                "rgba(153, 102, 255, 1)", 
-                "rgba(255, 159, 64, 1)"
+                "#A2711D", 
+                "#241F4A", 
+                "#770B08"
             ],
             borderWidth: 1
         }
@@ -360,9 +353,25 @@ const dataMelhor = {
 
 // Configurando o gráfico
 const config4 = {
-    type: "doughnut", // Altera o tipo para 'pie' para gráfico de pizza
+    type: "bar", // Altera o tipo para 'pie' para gráfico de pizza
     data: dataMelhor,
     options: {
+        indexAxis: 'y',
+        scales: {
+            x: {
+                beginAtZero: true,
+                ticks: {
+                    color: 'rgba(0,0,0,1)',
+                    font: { size: 14 }
+                }
+            },
+            y: {
+                ticks: {
+                    color: 'rgba(0,0,0,1)',
+                    font: { size: 14 }
+                }
+            }
+        },
         responsive: true,
         plugins: {
             tooltip: {
