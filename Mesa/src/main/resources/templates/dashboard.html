@@ -47,9 +47,27 @@
                 </div>
                 <div class="graphs-container">
                     <div class="graph-item" style="height: 300px; width: 450px;">
+                        <table table id="comidasPremiadas" style="border-radius: 10px; display: none;">
+                            <thead>
+                                <tr>
+                                    <th>Participantes</th>
+                                    <th>Meta</th>
+                                    <th>Realizada</th>
+                                    <th>Premiação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="colunaComida" th:each="comidaPreferida : ${comidaPreferida}">
+                                    <td th:text="${comidaPreferida.nomeParticipante}"></td>
+                                    <td th:text="${comidaPreferida.meta}"></td>
+                                    <td th:text="${comidaPreferida.realizado}"></td>
+                                    <td th:text="${comidaPreferida.valor_premiacao}"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <canvas id="comidaPreferida_bar"></canvas>
                         <script th:inline="javascript">
-                            
+
                         </script>
                         
                     </div>
@@ -84,16 +102,68 @@
                             </tr>
                         </tbody>
                     </table>
+                    <table table id="melhoresEmpresaDados" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Participante</th>
+                                <th>Meta</th>
+                                <th>Meta Realizada</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="melhoresEmpresa : ${melhoresEmpresas}">
+                                <td th:text="${melhoresEmpresa.nomeParticipante}"></td>
+                                <td th:text="${melhoresEmpresa.meta}"></td>
+                                <td th:text="${melhoresEmpresa.meta_atingida}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
             <div class="graph-better" style="height: 300px; width: 450px;">
                 <label name="Come Melhor">Come Melhor</label>
                 <canvas id="comeMelhorBar"></canvas>
+                <table table id="comeMelhorDados" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>Participante</th>
+                            <th>Meta</th>
+                            <th>Meta Realizada</th>
+                            <th>Meta positivada</th>
+                            <th>Real positivada</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="comeMelhor : ${comeMelhor}">
+                            <td th:text="${comeMelhor.nomeParticipante}"></td>
+                            <td th:text="${comeMelhor.meta}"></td>
+                            <td th:text="${comeMelhor.real_volume}"></td>
+                            <td th:text="${comeMelhor.meta_positivacao}"></td>
+                            <td th:text="${comeMelhor.real_positivacao}"></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="graph-destaque" style="height: 300px; width: 450px;">
                 <label name="Destaque">Destaque</label>
                 <canvas id="destaque"></canvas>
+                <table table id="destaqueDados" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>Participante</th>
+                            <th>Premiação</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="destaque : ${destaque}">
+                            <td th:text="${destaque.nomeParticipante}"></td>
+                            <td th:text="${destaque.valor_premiacao}"></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             <div class="destaqueConteiner">

@@ -33,21 +33,6 @@ public class DashboardController {
 			List<campanhas> comidaPreferida = (List<campanhas>) campanhasRepository.findCampanhasByPaginaComidaPremiada();
 			model.addAttribute("comidaPreferida", comidaPreferida);
 
-			// Aqui, formatamos os dados para o gráfico
-			List<String> participantes = new ArrayList<>();
-			List<String> metas = new ArrayList<>();
-			List<String> metasRealizadas = new ArrayList<>();		
-
-			for (campanhas campanha : comidaPreferida) {
-				participantes.add(campanha.getNomeParticipante());
-				metas.add(campanha.getMeta());
-				metasRealizadas.add(campanha.getRealizado());
-			}
-
-			model.addAttribute("participantes", participantes);
-			model.addAttribute("metas", metas);
-			model.addAttribute("metasRealizadas", metasRealizadas);
-
             // Buscar apenas as campanhas de "Melhores Empresas" usando a consulta personalizada
             List<campanhas> melhoresEmpresas = (List<campanhas>) campanhasRepository.findCampanhasByPaginaMelhoresEmpresas();
             model.addAttribute("melhoresEmpresas", melhoresEmpresas);
