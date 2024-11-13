@@ -57,7 +57,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr id="colunaComida" th:each="comidaPreferida : ${comidaPreferida}">
+                                <tr th:each="comidaPreferida : ${campanhas}">
                                     <td th:text="${comidaPreferida.nomeParticipante}"></td>
                                     <td th:text="${comidaPreferida.meta}"></td>
                                     <td th:text="${comidaPreferida.realizado}"></td>
@@ -88,7 +88,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="comeMelhor : ${comeMelhor}">
+                        <tr th:each="comeMelhor : ${campanhas2}">
                             <td th:text="${comeMelhor.nomeParticipante}"></td>
                             <td th:text="${comeMelhor.meta}"></td>
                             <td th:text="${comeMelhor.real_volume}"></td>
@@ -110,7 +110,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="destaque : ${destaque}">
+                        <tr th:each="destaque : ${campanhas3}">
                             <td th:text="${destaque.nomeParticipante}"></td>
                             <td th:text="${destaque.valor_premiacao}"></td>
                         </tr>
@@ -134,7 +134,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="melhoresEmpresa : ${melhoresEmpresas}">
+                            <tr th:each="melhoresEmpresa : ${campanhas1}">
                                 <td th:text="${melhoresEmpresa.empresa.nome}"></td>
                                 <td th:text="${melhoresEmpresa.nomeParticipante}"></td>
                                 <td th:text="${melhoresEmpresa.meta_atingida}"></td>
@@ -152,7 +152,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="melhoresEmpresa : ${melhoresEmpresas}">
+                            <tr th:each="melhoresEmpresa : ${campanhas1}">
                                 <td th:text="${melhoresEmpresa.nomeParticipante}"></td>
                                 <td th:text="${melhoresEmpresa.meta}"></td>
                                 <td th:text="${melhoresEmpresa.meta_atingida}"></td>
@@ -173,7 +173,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="destaqueCorporativo : ${destaqueCorporativo}">
+                        <tr th:each="destaqueCorporativo : ${campanhas4}">
                             <td th:text="${destaqueCorporativo.colocacao}"></td>
                             <td th:text="${destaqueCorporativo.empresa.nome}"></td>
                             <td th:text="${destaqueCorporativo.nomeParticipante}"></td>
@@ -183,8 +183,6 @@
                 </table>
             </div>
         </div>
-    </div>
-
     <script th:src="@{/js/dashboard.js}"></script>
 </body>
 </html>
