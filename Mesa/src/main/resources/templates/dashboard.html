@@ -66,10 +66,6 @@
                             </tbody>
                         </table>
                         <canvas id="comidaPreferida_bar"></canvas>
-                        <script th:inline="javascript">
-
-                        </script>
-                        
                     </div>
                     <div class="graph-item" style="height: 300px; width: 450px;">
                         <canvas id="comidaPreferida_Bolhas"></canvas>
@@ -77,51 +73,7 @@
                 </div>
             </div>
 
-            <!-- Gráfico de Melhores Empresas ao lado da Tabela -->
-            <div class="graph-and-table-right">
-                <div class="graph-item" style="height: 300px; width: 450px;">
-                    <label>Melhores Empresas</label>
-                    <canvas id="melhoresEmpresas_bar"></canvas>
-                </div>
-                <div class="ranking-section">
-                    <table table id="melhoresEmpresa1" style="border-radius: 10px;">
-                        <thead>
-                            <tr>
-                                <th>Empresa</th>
-                                <th>Participante</th>
-                                <th>Meta Realizada</th>
-                                <th>Premiação</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="melhoresEmpresa : ${melhoresEmpresas}">
-                                <td th:text="${melhoresEmpresa.empresa.nome}"></td>
-                                <td th:text="${melhoresEmpresa.nomeParticipante}"></td>
-                                <td th:text="${melhoresEmpresa.meta_atingida}"></td>
-                                <td th:text="${melhoresEmpresa.valor_com_taxa}"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table table id="melhoresEmpresaDados" style="display: none;">
-                        <thead>
-                            <tr>
-                                <th>Participante</th>
-                                <th>Meta</th>
-                                <th>Meta Realizada</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="melhoresEmpresa : ${melhoresEmpresas}">
-                                <td th:text="${melhoresEmpresa.nomeParticipante}"></td>
-                                <td th:text="${melhoresEmpresa.meta}"></td>
-                                <td th:text="${melhoresEmpresa.meta_atingida}"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="graph-better" style="height: 300px; width: 450px;">
+            <div class="graph-better" style="height: 350px; width: 450px;">
                 <label name="Come Melhor">Come Melhor</label>
                 <canvas id="comeMelhorBar"></canvas>
                 <table table id="comeMelhorDados" style="display: none;">
@@ -165,7 +117,50 @@
                     </tbody>
                 </table>
             </div>
-
+            <!-- Gráfico de Melhores Empresas ao lado da Tabela -->
+            <div class="graph-and-table-right">
+                <div class="graph-item1" style="height: 300px; width: 350px;">
+                    <label>Melhores Empresas</label><br>
+                    <canvas id="melhoresEmpresas_bar"></canvas>
+                </div>
+                <div class="ranking-section">
+                    <table table id="melhoresEmpresa1" >
+                        <thead>
+                            <tr>
+                                <th>Empresa</th>
+                                <th>Participante</th>
+                                <th>Meta Realizada</th>
+                                <th>Premiação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="melhoresEmpresa : ${melhoresEmpresas}">
+                                <td th:text="${melhoresEmpresa.empresa.nome}"></td>
+                                <td th:text="${melhoresEmpresa.nomeParticipante}"></td>
+                                <td th:text="${melhoresEmpresa.meta_atingida}"></td>
+                                <td th:text="${melhoresEmpresa.valor_com_taxa}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <table table id="melhoresEmpresaDados" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Participante</th>
+                                <th>Meta</th>
+                                <th>Meta Realizada</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="melhoresEmpresa : ${melhoresEmpresas}">
+                                <td th:text="${melhoresEmpresa.nomeParticipante}"></td>
+                                <td th:text="${melhoresEmpresa.meta}"></td>
+                                <td th:text="${melhoresEmpresa.meta_atingida}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <div class="destaqueConteiner">
                 <label class="destaqueLabel">Destaque Corporativo</label>
                 <table class="destaqueCorporativoTable">
