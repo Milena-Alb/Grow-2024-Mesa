@@ -215,3 +215,78 @@
     }
   }
   
+  .button_paginas{
+      /*alterei as cores para o padrao do figma*/
+    background-color: #241F4A;
+    color: #fff;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    
+
+  }
+  
+  .button_paginas:hover{
+  background-color: #583f99;
+  }
+  
+  table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #241f4a; /* Cor do sidebar */
+  color: #fff;
+  margin-top: 20px; /* Espaço entre a tabela e os elementos acima */
+}
+  
+  table th,
+table td {
+  padding: 15px;
+  border: 1px solid #583f99; /* Cor de borda semelhante ao hover do sidebar */
+  text-align: left;
+}
+
+
+table td a {
+  display: inline-block; /* Exibir os links como blocos em linha */
+  padding: 5px 10px; /* Espaçamento interno para criar aparência de botão */
+  margin-right: 10px; /* Espaço entre os botões */
+  color: #fff; /* Cor do texto */
+  background-color: #241f4a; /* Cor de fundo dos botões */
+  border-radius: 5px; /* Bordas arredondadas */
+  text-decoration: none; /* Remover sublinhado */
+  transition: background-color 0.3s; /* Animação de hover */
+}
+
+table td a:hover {
+  background-color: #161042; /* Cor ao passar o mouse */
+}
+
+table th {
+  background-color: #1a1636; /* Cor de destaque para o cabeçalho */
+ color:#FFD700;
+}
+
+table tr:nth-child(even) {
+  background-color: rgba(36, 31, 74, 0.8); /* Cor alternada para linhas pares */
+}
+
+#btnAtualizar{
+	background-color: #241f4a;
+  color: #fff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+  position: absolute;
+  right: 20px;
+}
+
+#btnAtualizar:hover{
+	background-color: #583f99;
+}
+
+

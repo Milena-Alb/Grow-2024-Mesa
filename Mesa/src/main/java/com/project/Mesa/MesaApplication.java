@@ -62,6 +62,7 @@ public class MesaApplication {
 	        	criarFilialSeNaoExistir(filialRepository, "777777777.0001-77", "Bela Mesa Alimentos", "Bela Mesa Alimentos LTDA");
 	        	criarFilialSeNaoExistir(filialRepository, "555555555.0001-55", "Essência do Sabor", "Essência do Sabor LTDA");
 	        	criarFilialSeNaoExistir(filialRepository, "666666666.0001-66", "Porto Digital", "Porto Digital LTDA");
+	        	criarFilialSeNaoExistir(filialRepository, "444444444.0001-44", "Sabores do Campo", "Sabores do Campo LTDA");
 	        	
 	        	criarUsuarioSeNaoExistir(userRepository, "MarianaSoares", "Gerente", "999999999.0001-99", "1234");
 				criarUsuarioSeNaoExistir(userRepository, "CarlaFerreira", "Gerente", "888888888.0001-88", "1234");

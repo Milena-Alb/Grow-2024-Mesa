@@ -18,6 +18,7 @@
 
     <div class="name"></div>
     <div class="form-container">
+    
       <form action="/login" method="post">
         <div class="form-group">
           <label for="username">Digite seu Login</label>
@@ -26,7 +27,11 @@
         <div class="form-group">
           <label for="password">Digite sua senha</label>
           <input type="password" id="password" name="password" required>
+          	<div th:if="${param.error}" class="error-message">
+        		Usuario ou senha incorretos. Tente novamente.
+      		</div>
         </div>
+        
         <button class="login-button" type="submit">Login</button>
       </form>
       <a href="#" class="forgot-password">Esqueci minha senha</a>
