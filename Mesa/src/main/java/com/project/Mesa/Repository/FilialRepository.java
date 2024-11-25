@@ -14,7 +14,5 @@ import jakarta.transaction.Transactional;
 @Repository
 @Transactional
 public interface FilialRepository extends CrudRepository<filial, String>{
-
-	
 	Optional<filial> findByNome(String nome);
 }

@@ -1,6 +1,4 @@
 package com.project.Mesa.Model;
-
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -17,12 +15,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 
 @Entity
-public class Users implements Serializable, UserDetails {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class Users implements UserDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_seq")
@@ -80,7 +73,9 @@ public class Users implements Serializable, UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-	    String role = cargo.equalsIgnoreCase("Administrador") ? "ROLE_MANAGER" : "ROLE_USER";
+	    String role = cargo.equalsIgnoreCase("Administrador") || cargo.equalsIgnoreCase("Marketing") 
+	                  ? "ROLE_MANAGER" 
+	                  : "ROLE_USER";
 	    return Collections.singletonList(new SimpleGrantedAuthority(role));
 	}
 	

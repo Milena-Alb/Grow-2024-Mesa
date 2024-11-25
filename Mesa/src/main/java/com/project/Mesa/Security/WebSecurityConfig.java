@@ -48,14 +48,15 @@ public class WebSecurityConfig implements WebMvcConfigurer {
 		http.authorizeHttpRequests((authz) -> authz
 				// Rotas acessíveis apenas pelo admin
 				.requestMatchers("/login.css","/img/**","/js/**").permitAll()
-				.requestMatchers("/cadastrousuarios", "/salvarusuarios","/listarusuarios","/editarusuarios/{idusuario}",
-						"/filial","/upload","/usuarios").hasRole("MANAGER")
+				.requestMatchers("/salvarusuarios","/listarusuarios","/editarusuarios/{idusuario}",
+						"/filial","/upload","/usuarios","/update-sheets").hasRole("MANAGER")
 				
 				// Qualquer outra rota requer autenticação
 				.anyRequest().authenticated())
 				// Usa o form da pagina tela.html do Spring Security
 				.formLogin((form) -> form
 						.loginPage("/login")
+						.failureUrl("/login?error=true")
 						.defaultSuccessUrl("/", true) 
 						.permitAll())
 				 .logout(logout -> logout.logoutUrl("/logout")
